@@ -25,7 +25,6 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view:View =  inflater.inflate(R.layout.fragment_profile, container, false)
-
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         val email = view.findViewById<TextView>(R.id.emailTextView)

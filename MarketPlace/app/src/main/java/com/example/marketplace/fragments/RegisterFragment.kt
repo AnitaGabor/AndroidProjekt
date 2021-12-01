@@ -54,10 +54,11 @@ class RegisterFragment : Fragment() {
             }
             else
             {
+                this.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                 val t:Toast = Toast.makeText(activity?.applicationContext,"Success registration",Toast.LENGTH_SHORT)
                 t.show()
             }
-            this.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
         }
 
         link.setOnClickListener {
@@ -66,21 +67,20 @@ class RegisterFragment : Fragment() {
         return view
     }
 
-    fun isEmpty(text: EditText): Boolean {
+    private fun isEmpty(text: EditText): Boolean {
         val str: String = text.text.toString()
-        return str.isEmpty()
+        return str.isEmpty() || str == "Full name"
     }
 
-    fun isEmail(text: EditText): Boolean {
+    private fun isEmail(text: EditText): Boolean {
         val email: String = text.text.toString()
-        return !email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    fun isPassword(text:EditText) :Boolean{
+    private fun isPassword(text:EditText) :Boolean{
         val PASSWORD_PATTERN: Pattern = Pattern.compile("[a-zA-Z0-9]{8,24}")
-
         val pass:String = text.text.toString()
-        return !pass.isEmpty() && PASSWORD_PATTERN.matcher(pass).matches()
+        return pass.isNotEmpty() && PASSWORD_PATTERN.matcher(pass).matches()
     }
 
 }

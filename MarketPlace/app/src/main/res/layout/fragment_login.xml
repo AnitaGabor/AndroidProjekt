@@ -20,21 +20,6 @@
         app:layout_constraintVertical_bias="0.167" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddressLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:text="Email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.106" />
-
-    <EditText
         android:id="@+id/editTextTextPasswordLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,8 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddressLogin"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.183" />
 
     <Button
         android:id="@+id/buttonLogIn"
@@ -111,4 +96,19 @@
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordLogin"
         app:layout_constraintVertical_bias="0.709" />
+
+    <EditText
+        android:id="@+id/editTextTextUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Username"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPasswordLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.54" />
 </androidx.constraintlayout.widget.ConstraintLayout>

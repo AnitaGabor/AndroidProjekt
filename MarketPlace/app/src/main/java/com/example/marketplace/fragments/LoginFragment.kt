@@ -11,18 +11,27 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.marketplace.R
+import com.example.marketplace.repository.Repository
+import com.example.marketplace.viewModel.LoginViewModel
+import com.example.marketplace.viewModel.LoginViewModelFactory
 import com.example.marketplace.viewModel.MainViewModel
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 
 class LoginFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var loginViewModel: LoginViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val factory = LoginViewModelFactory(this.requireContext(), Repository())
+        loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -32,7 +41,7 @@ class LoginFragment : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_login, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
-        val email = view.findViewById<EditText>(R.id.editTextTextEmailAddressLogin)
+        val username = view.findViewById<EditText>(R.id.editTextTextUserName)
         val password = view.findViewById<EditText>(R.id.editTextTextPasswordLogin)
 
         val button = view.findViewById<Button>(R.id.buttonLogIn)
@@ -41,18 +50,30 @@ class LoginFragment : Fragment() {
         val link = view.findViewById<TextView>(R.id.forgotPasswordLink)
 
         button.setOnClickListener {
-            if(!isEmail(email) || !isPassword(password))
+            if(username.text.toString() == "Username" || !isPassword(password))
             {
                 val t: Toast = Toast.makeText(activity?.applicationContext,"Enter data!",
                     Toast.LENGTH_SHORT)
                 t.show()
             }
-            viewModel.setEmail(email.text.toString());
+                loginViewModel.user.value.let {
+                    if (it != null) {
+                        it.username = username.text.toString()
+                    }
+                    if (it != null) {
+                        it.password = password.text.toString()
+                    }
+                }
+                lifecycleScope.launch {
+                    loginViewModel.login()
+                }
+        }
+
+        loginViewModel.token.observe(viewLifecycleOwner){
             val t: Toast = Toast.makeText(activity?.applicationContext,"Login...",
                 Toast.LENGTH_SHORT)
             t.show()
-            this.findNavController().navigate(R.id.action_loginFragment_to_settingsFragment)
-
+            findNavController().navigate(R.id.action_loginFragment_to_settingsFragment)
         }
 
         link.setOnClickListener {
@@ -63,10 +84,6 @@ class LoginFragment : Fragment() {
         }
 
         return view
-    }
-    private fun isEmail(text: EditText): Boolean {
-        val email: String = text.text.toString()
-        return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
     private fun isPassword(text:EditText) :Boolean{
         val PASSWORD_PATTERN: Pattern = Pattern.compile("[a-zA-Z0-9]{8,24}")

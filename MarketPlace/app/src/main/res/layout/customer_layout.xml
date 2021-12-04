@@ -22,7 +22,7 @@
 
 
             <ImageView
-                android:id="@+id/producteImageView"
+                android:id="@+id/productImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 card_view:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintHorizontal_bias="0.351"
-                card_view:layout_constraintStart_toEndOf="@+id/producteImageView"
+                card_view:layout_constraintStart_toEndOf="@+id/productImageView"
                 card_view:layout_constraintTop_toTopOf="parent"
                 card_view:layout_constraintVertical_bias="0.16" />
 
@@ -55,7 +55,7 @@
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintHorizontal_bias="0.377"
-                card_view:layout_constraintStart_toEndOf="@+id/producteImageView"
+                card_view:layout_constraintStart_toEndOf="@+id/productImageView"
                 card_view:layout_constraintTop_toBottomOf="@+id/userNameView"
                 card_view:layout_constraintVertical_bias="0.13" />
 

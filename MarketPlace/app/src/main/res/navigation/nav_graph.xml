@@ -42,4 +42,18 @@
         android:name="com.example.marketplace.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/timeLineFragment"
+        android:name="com.example.marketplace.fragments.TimeLineFragment"
+        android:label="fragment_time_line"
+        tools:layout="@layout/fragment_time_line" >
+        <action
+            android:id="@+id/action_timeLineFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="com.example.marketplace.fragments.CustomerDetailFragment"
+        android:label="fragment_customer_detail"
+        tools:layout="@layout/fragment_customer_detail" />
 </navigation>

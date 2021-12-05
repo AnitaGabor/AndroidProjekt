@@ -1,39 +1,35 @@
 package com.example.marketplace.viewModel
 
-
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marketplace.MyApplication
 import com.example.marketplace.models.LoginRequest
+import com.example.marketplace.models.RegisterRequest
 import com.example.marketplace.models.User
-import com.example.marketplace.models.UserUpdateResponse
 import com.example.marketplace.repository.Repository
 import kotlinx.coroutines.launch
 
-class LoginViewModel (val repository: Repository) : ViewModel() {
+class RegisterViewModel (val repository: Repository) : ViewModel() {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
 
     init {
         user.value = User()
     }
-    suspend fun login() {
+    suspend fun register() {
         viewModelScope.launch {
-            val request = LoginRequest(username = user.value!!.username, password = user.value!!.password)
+            val request = RegisterRequest(username = user.value!!.username, password = user.value!!.password, email = user.value!!.email)
             try {
-                val result = repository.login(request)
-                MyApplication.token = result.token
-                token.value = result.token
-                Log.d("LoginViewModel ok", "LoginViewModel - #users:  ${MyApplication.token}")
+                val result = repository.register(request)
+                MyApplication.token = result.message
+                token.value = result.message
+                Log.d("RegisterViewModel ok", "RegisterViewModel - #users:  ${MyApplication.token}")
             }catch(e: Exception){
 
-                Log.d("LoginViewModel fail", "LoginViewModel exception login: ${e.toString()}")
+                Log.d("RegisterViewModel fail", "RegisterViewModel exception: ${e.toString()}")
             }
         }
     }
-
-
-
 }

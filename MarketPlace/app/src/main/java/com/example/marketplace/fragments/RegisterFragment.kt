@@ -11,15 +11,24 @@ import com.example.marketplace.R
 import android.util.Patterns
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.example.marketplace.repository.Repository
+import com.example.marketplace.viewModel.RegisterViewModel
+import com.example.marketplace.viewModel.RegisterViewModelFactory
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 
 class RegisterFragment : Fragment() {
 
+    private lateinit var registerViewModel: RegisterViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val factory = RegisterViewModelFactory(Repository())
+        registerViewModel = ViewModelProvider(this, factory).get(RegisterViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -28,7 +37,7 @@ class RegisterFragment : Fragment() {
     ): View? {
         val view:View  = inflater.inflate(R.layout.fragment_register, container, false)
 
-        val name = view.findViewById<EditText>(R.id.editTextTextPersonName)
+        val username = view.findViewById<EditText>(R.id.editTextTextPersonName)
         val email = view.findViewById<EditText>(R.id.editTextTextEmailAddress)
         val password = view.findViewById<EditText>(R.id.editTextTextPassword)
 
@@ -37,7 +46,7 @@ class RegisterFragment : Fragment() {
         val link = view.findViewById<TextView>(R.id.loginLink)
 
         button.setOnClickListener{
-            if(isEmpty(name))
+            if(isEmpty(username))
             {
                 val t:Toast = Toast.makeText(activity?.applicationContext,"You must enter the name!",Toast.LENGTH_SHORT)
                 t.show()
@@ -54,13 +63,27 @@ class RegisterFragment : Fragment() {
             }
             else
             {
-                this.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                val t:Toast = Toast.makeText(activity?.applicationContext,"Success registration",Toast.LENGTH_SHORT)
-                t.show()
+                registerViewModel.user.value.let {
+                    if (it != null) {
+                        it.username = username.text.toString()
+                    }
+                    if (it != null) {
+                        it.password = password.text.toString()
+                    }
+                    if(it!=null){
+                        it.email = email.text.toString()
+                    }
+                }
+                lifecycleScope.launch {
+                    registerViewModel.register()
+                }
             }
-
         }
-
+        registerViewModel.token.observe(viewLifecycleOwner){
+            val t:Toast = Toast.makeText(activity?.applicationContext,"Success registration",Toast.LENGTH_SHORT)
+            t.show()
+            this.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
         link.setOnClickListener {
             Navigation.findNavController(this.requireActivity(),R.id.myNavHostFragment).navigate(R.id.loginFragment)
         }

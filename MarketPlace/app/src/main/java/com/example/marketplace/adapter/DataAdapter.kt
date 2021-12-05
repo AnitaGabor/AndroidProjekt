@@ -29,7 +29,6 @@ class DataAdapter(
         fun onItemLongClick(position: Int)
     }
 
-    // 1. user defined ViewHolder type - Embedded class!
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener, View.OnLongClickListener {
         val username: TextView = itemView.findViewById(R.id.usernameTextView)

@@ -1,36 +1,28 @@
 package com.example.marketplace.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.marketplace.R
-import com.example.marketplace.viewModel.MainViewModel
-import androidx.core.app.ActivityCompat.startActivityForResult
-import android.provider.MediaStore
-
-import android.graphics.Bitmap
-
-import android.app.Activity
-
-
-
-
-
-
+import com.example.marketplace.repository.Repository
+import com.example.marketplace.viewModel.*
+import kotlinx.coroutines.launch
 
 
 class SettingsFragment : Fragment() {
-    private lateinit var viewModel: MainViewModel
+    private lateinit var settingsViewModel: SettingsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val factory = SettingsViewModelFactory(Repository())
+        settingsViewModel = ViewModelProvider(this, factory).get(SettingsViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -38,21 +30,39 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view:View =  inflater.inflate(R.layout.fragment_settings, container, false)
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         val email = view.findViewById<EditText>(R.id.editTextTextEmailAddress4)
         val username = view.findViewById<EditText>(R.id.editTextTextUsername)
         val phone = view.findViewById<EditText>(R.id.editTextPhone)
-
-        email.setText(viewModel.getEmail());
+        val password = view.findViewById<EditText>(R.id.editTextTextPassword2)
         val button = view.findViewById<Button>(R.id.buttonOfSettings)
 
 
 
         button.setOnClickListener {
-            viewModel.setUserName(username.text.toString())
-            viewModel.setPhone(phone.text.toString())
-            this.findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
+            settingsViewModel.user.value.let {
+                if (it != null) {
+                    it.username = username.text.toString()
+                }
+                if (it != null) {
+                    it.password = password.text.toString()
+                }
+                if(it!=null){
+                    it.email = email.text.toString()
+                }
+                if(it!=null){
+                    it.phone_number = phone.text.toString()
+                }
+            }
+            lifecycleScope.launch {
+                settingsViewModel.updateUser()
+            }
+
+        }
+        settingsViewModel.token.observe(viewLifecycleOwner){
+            val t: Toast = Toast.makeText(activity?.applicationContext,"Settings...", Toast.LENGTH_SHORT)
+            t.show()
+            findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
         }
 
         return view

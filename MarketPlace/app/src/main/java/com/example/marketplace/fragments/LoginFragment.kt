@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val factory = LoginViewModelFactory(this.requireContext(), Repository())
+        val factory = LoginViewModelFactory(Repository())
         loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
     }
 

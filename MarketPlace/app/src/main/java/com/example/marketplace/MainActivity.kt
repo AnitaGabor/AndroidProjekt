@@ -2,6 +2,10 @@ package com.example.marketplace
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -16,7 +20,22 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.myNavHostFragment)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
+
         bottomNav?.setupWithNavController(navController)
+
+        val actionBar = supportActionBar
+        actionBar!!.title = "Bazaar"
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.registerFragment || destination.id == R.id.forgetPasswordFragment
+                || destination.id == R.id.loginFragment) {
+
+                bottomNav.visibility = View.GONE
+            } else {
+
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
 
 
         bottomNav.setOnItemSelectedListener { menuItem ->
@@ -47,4 +66,28 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.action_bar, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            findNavController(R.id.myNavHostFragment).navigate(R.id.settingsFragment)
+            true
+        }
+
+        R.id.action_search -> {
+
+            true
+        }
+        R.id.action_profile ->{
+            findNavController(R.id.myNavHostFragment).navigate(R.id.profileFragment)
+            true
+        }
+
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
 }

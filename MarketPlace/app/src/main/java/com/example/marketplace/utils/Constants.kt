@@ -8,6 +8,7 @@ class Constants {
         const val REGISTER_URL ="user/register"
         const val RESET_URL ="user/reset"
         const val UPDATE_DATA_URL = "user/update"
+        const val USER_INFO = "user/data"
 
     }
 }

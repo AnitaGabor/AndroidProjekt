@@ -10,7 +10,8 @@ data class Product(val rating: Double,
                    val units: String,
                    val description: String,
                    val title: String,
-                   //val images: List<Image>,
-                   val creation_time: Long)
+                   val creation_time: Long
+)
+
 
 data class ProductResponse(val item_count: Int, val products: List<Product>, val timestamp: Long)

@@ -6,6 +6,7 @@ import com.example.marketplace.utils.Constants.Companion.LOGIN_URL
 import com.example.marketplace.utils.Constants.Companion.REGISTER_URL
 import com.example.marketplace.utils.Constants.Companion.RESET_URL
 import com.example.marketplace.utils.Constants.Companion.UPDATE_DATA_URL
+import com.example.marketplace.utils.Constants.Companion.USER_INFO
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -16,7 +17,7 @@ interface MarketApi {
     suspend fun login(@Body request: LoginRequest): LoginResponse
 
     @GET(GET_PRODUCT_URL)
-    suspend fun getPost(@Header("token") token: String): ProductResponse
+    suspend fun getProducts(@Header("token") token: String): ProductResponse
 
     @POST(REGISTER_URL)
     suspend fun register(@Body request: RegisterRequest): RegisterResponse
@@ -25,7 +26,9 @@ interface MarketApi {
     suspend fun reset(@Body request: ResetRequest) :ResetResponse
 
     @POST(UPDATE_DATA_URL)
-    suspend fun updateUser(@Body request: SettingsRequest) : SettingsResponse
+    suspend fun updateUser(@Header("token") token:String, @Body request: SettingsRequest) : SettingsResponse
 
+    @GET(USER_INFO)
+    suspend fun getUserData(@Header("username") username:String) :UserResponse
 
 }

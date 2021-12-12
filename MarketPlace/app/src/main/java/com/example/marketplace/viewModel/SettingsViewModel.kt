@@ -21,9 +21,9 @@ class SettingsViewModel (val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             val request = SettingsRequest(username = user.value!!.username, email = user.value!!.email, phone_number = user.value!!.phone_number)
             try {
-                val result = repository.updateUser(request)
-                MyApplication.token = result.code.toString()
-                token.value = result.code.toString()
+                val result = repository.updateUser(MyApplication.token,request)
+                MyApplication.token = result.updateData.token
+                token.value = result.updateData.token
                 Log.d("SettingsViewModel ok", "SettingsViewModel - #users:  ${MyApplication.token}")
             }catch(e: Exception){
 

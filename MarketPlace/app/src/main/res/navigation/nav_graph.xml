@@ -11,8 +11,8 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_loginFragment_to_timeLineFragment"
+            app:destination="@id/timeLineFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -45,7 +45,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.marketplace.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/timeLineFragment"
         android:name="com.example.marketplace.fragments.TimeLineFragment"

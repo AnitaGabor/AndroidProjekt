@@ -1,45 +1,41 @@
 package com.example.marketplace.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.marketplace.R
 import com.example.marketplace.models.Product
 
 class DataAdapter(
-    private var list: ArrayList<Product>,
-    private val context: Context,
-    private val listener: OnItemClickListener,
-    private val listener2: OnItemLongClickListener
+private var list: ArrayList<Product>,
+private val context: Context,
+private val listener: OnItemClickListener,
+private val listener2: OnItemLongClickListener
 ) :
-    RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
-    interface OnItemClickListener{
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    interface OnItemLongClickListener{
+    interface OnItemLongClickListener {
         fun onItemLongClick(position: Int)
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener, View.OnLongClickListener {
-        val username: TextView = itemView.findViewById(R.id.usernameTextView)
-        val productname: TextView = itemView.findViewById(R.id.productNameView)
-        val price: TextView = itemView.findViewById(R.id.priceProductView)
-        private val orderButton: Button = itemView.findViewById(R.id.orderButton)
+        val productName: TextView = itemView.findViewById(R.id.productNameTextView)
+        val price: TextView = itemView.findViewById(R.id.priceTextView)
+        val seller: TextView = itemView.findViewById(R.id.sellerTextView)
 
-        init{
+        init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
         }
+
         override fun onClick(p0: View?) {
             val currentPosition = this.adapterPosition
             listener.onItemClick(currentPosition)
@@ -60,18 +56,16 @@ class DataAdapter(
     }
 
 
-    // 3. Called many times, when we scroll the list
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        val currentItem = list.get(position)
-        holder.username.text = currentItem.username
-        holder.productname.text = currentItem.product_id
+        val currentItem = list[position]
+        holder.productName.text = currentItem.title
         holder.price.text = currentItem.price_per_unit
-
+        holder.seller.text = currentItem.username
     }
 
     override fun getItemCount() = list.size
 
-    fun setData(newlist: ArrayList<Product>){
+    fun setData(newlist: ArrayList<Product>) {
         list = newlist
     }
 }

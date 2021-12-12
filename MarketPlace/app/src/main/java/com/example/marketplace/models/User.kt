@@ -59,3 +59,14 @@ data class SettingsResponse(
     var updateData: UserUpdateResponse,
     var timestamp:Long
 )
+
+data class UserProfile(
+    var username: String,
+    var phone_number: String,
+    var email: String
+)
+
+data class UserResponse(
+    var code:Int,
+    var data: UserProfile
+)

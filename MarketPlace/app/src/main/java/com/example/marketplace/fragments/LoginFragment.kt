@@ -19,6 +19,7 @@ import com.example.marketplace.repository.Repository
 import com.example.marketplace.viewModel.LoginViewModel
 import com.example.marketplace.viewModel.LoginViewModelFactory
 import com.example.marketplace.viewModel.MainViewModel
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
@@ -41,8 +42,8 @@ class LoginFragment : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_login, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
-        val username = view.findViewById<EditText>(R.id.editTextTextUserName)
-        val password = view.findViewById<EditText>(R.id.editTextTextPasswordLogin)
+        val username = view.findViewById<TextInputEditText>(R.id.editTextTextUserName)
+        val password = view.findViewById<TextInputEditText>(R.id.editTextTextPasswordLogin)
 
         val button = view.findViewById<Button>(R.id.buttonLogIn)
         val buttonSingUp = view.findViewById<Button>(R.id.buttonSingUp)
@@ -73,7 +74,7 @@ class LoginFragment : Fragment() {
             val t: Toast = Toast.makeText(activity?.applicationContext,"Login...",
                 Toast.LENGTH_SHORT)
             t.show()
-            findNavController().navigate(R.id.action_loginFragment_to_settingsFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_timeLineFragment)
         }
 
         link.setOnClickListener {

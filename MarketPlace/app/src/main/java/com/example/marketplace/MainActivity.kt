@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.ActionBar
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +19,6 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
 
         bottomNav?.setupWithNavController(navController)
-
-        val actionBar = supportActionBar
-        actionBar!!.title = "Bazaar"
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(destination.id == R.id.registerFragment || destination.id == R.id.forgetPasswordFragment
@@ -60,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.myNavHostFragment)

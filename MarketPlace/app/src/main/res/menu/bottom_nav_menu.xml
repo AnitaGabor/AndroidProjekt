@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_timeline"
-        android:icon="@android:drawable/ic_menu_revert"
+        android:icon="@mipmap/ic_icon_baazar"
         android:orderInCategory="1"
         android:title="Timeline"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_mymarket"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/ic_cart_icon"
         android:orderInCategory="2"
         android:title="My Market"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_myfare"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@mipmap/ic_icon_fare"
         android:orderInCategory="3"
         android:title="My Fares"
         app:showAsAction="always" />

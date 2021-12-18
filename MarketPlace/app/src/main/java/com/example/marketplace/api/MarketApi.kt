@@ -1,6 +1,11 @@
 package com.example.marketplace.api
 
-import com.example.marketplace.models.*
+import com.example.marketplace.login.*
+import com.example.marketplace.timeline.*
+import com.example.marketplace.register.*
+import com.example.marketplace.forgetPassword.*
+import com.example.marketplace.settingsProfile.*
+import com.example.marketplace.profile.*
 import com.example.marketplace.utils.Constants.Companion.GET_PRODUCT_URL
 import com.example.marketplace.utils.Constants.Companion.LOGIN_URL
 import com.example.marketplace.utils.Constants.Companion.REGISTER_URL
@@ -17,7 +22,7 @@ interface MarketApi {
     suspend fun login(@Body request: LoginRequest): LoginResponse
 
     @GET(GET_PRODUCT_URL)
-    suspend fun getProducts(@Header("token") token: String): ProductResponse
+    suspend fun getProducts(@Header("token") token: String, @Header("limit") limit: Int = 100): ProductResponse
 
     @POST(REGISTER_URL)
     suspend fun register(@Body request: RegisterRequest): RegisterResponse

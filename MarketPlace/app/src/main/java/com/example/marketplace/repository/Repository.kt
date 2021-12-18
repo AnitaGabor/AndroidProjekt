@@ -1,11 +1,16 @@
 package com.example.marketplace.repository
 
 import com.example.marketplace.api.RetrofitInstance
-import com.example.marketplace.models.*
+import com.example.marketplace.timeline.*
+import com.example.marketplace.login.*
+import com.example.marketplace.register.*
+import com.example.marketplace.forgetPassword.*
+import com.example.marketplace.settingsProfile.*
+import com.example.marketplace.profile.*
 
 class Repository {
-    suspend fun getProducts(token: String): ProductResponse {
-        return RetrofitInstance.api.getProducts(token)
+    suspend fun getProducts(token: String, limit:Int): ProductResponse {
+        return RetrofitInstance.api.getProducts(token, limit)
     }
 
     suspend fun login(request: LoginRequest): LoginResponse {

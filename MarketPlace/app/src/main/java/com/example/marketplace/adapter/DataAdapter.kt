@@ -1,17 +1,15 @@
 package com.example.marketplace.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marketplace.R
-import com.example.marketplace.models.Product
+import com.example.marketplace.timeline.Product
 
 class DataAdapter(
 private var list: ArrayList<Product>,
-private val context: Context,
 private val listener: OnItemClickListener,
 private val listener2: OnItemLongClickListener
 ) :
@@ -50,8 +48,7 @@ RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.customer_layout, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.customer_layout, parent, false)
         return DataViewHolder(itemView)
     }
 
@@ -68,4 +65,6 @@ RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
     fun setData(newlist: ArrayList<Product>) {
         list = newlist
     }
+
+
 }

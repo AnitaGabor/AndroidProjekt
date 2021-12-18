@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.marketplace.fragments.LoginFragment"
+        android:name="com.example.marketplace.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.marketplace.fragments.RegisterFragment"
+        android:name="com.example.marketplace.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="com.example.marketplace.fragments.ForgetPasswordFragment"
+        android:name="com.example.marketplace.forgetPassword.ForgetPasswordFragment"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.marketplace.fragments.SettingsFragment"
+        android:name="com.example.marketplace.settingsProfile.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.marketplace.fragments.ProfileFragment"
+        android:name="com.example.marketplace.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/timeLineFragment"
-        android:name="com.example.marketplace.fragments.TimeLineFragment"
+        android:name="com.example.marketplace.timeline.TimeLineFragment"
         android:label="fragment_time_line"
         tools:layout="@layout/fragment_time_line" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/customerDetailFragment"
-        android:name="com.example.marketplace.fragments.CustomerDetailFragment"
+        android:name="com.example.marketplace.timeline.CustomerDetailFragment"
         android:label="fragment_customer_detail"
         tools:layout="@layout/fragment_customer_detail" />
 </navigation>

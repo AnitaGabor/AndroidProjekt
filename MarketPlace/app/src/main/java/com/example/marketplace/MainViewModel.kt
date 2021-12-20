@@ -1,17 +1,8 @@
 package com.example.marketplace
 
 import androidx.lifecycle.ViewModel
+import com.example.marketplace.timeline.model.Product
 
 class MainViewModel : ViewModel() {
-    var username:String ="";
 
-    fun setName( name:String)
-    {
-        username = name
-    }
-
-    fun getName() : String
-    {
-        return username
-    }
 }

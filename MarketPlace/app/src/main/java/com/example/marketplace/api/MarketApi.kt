@@ -1,11 +1,13 @@
 package com.example.marketplace.api
 
-import com.example.marketplace.login.*
-import com.example.marketplace.timeline.*
-import com.example.marketplace.register.*
-import com.example.marketplace.forgetPassword.*
-import com.example.marketplace.settingsProfile.*
-import com.example.marketplace.profile.*
+import com.example.marketplace.addproduct.model.*
+import com.example.marketplace.login.model.*
+import com.example.marketplace.timeline.model.*
+import com.example.marketplace.register.model.*
+import com.example.marketplace.forgetPassword.model.*
+import com.example.marketplace.settingsProfile.model.*
+import com.example.marketplace.profile.model.*
+import com.example.marketplace.utils.Constants.Companion.ADD_PRODUCT_URL
 import com.example.marketplace.utils.Constants.Companion.GET_PRODUCT_URL
 import com.example.marketplace.utils.Constants.Companion.LOGIN_URL
 import com.example.marketplace.utils.Constants.Companion.REGISTER_URL
@@ -35,5 +37,9 @@ interface MarketApi {
 
     @GET(USER_INFO)
     suspend fun getUserData(@Header("username") username:String) :UserResponse
+
+    @POST(ADD_PRODUCT_URL)
+    suspend fun addProduct(@Header("token") token:String, @Body request: AddProductRequest) :AddProductResponse
+
 
 }

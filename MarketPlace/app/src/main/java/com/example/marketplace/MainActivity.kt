@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.SearchView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     findNavController(R.id.myNavHostFragment).navigate(R.id.timeLineFragment)
                 }
                 R.id.menu_mymarket -> {
-                    //Navigation.findNavController(this,R.id.myNavHostFragment).navigate(R.id.)
+                    findNavController(R.id.myNavHostFragment).navigate(R.id.myMarketFragment)
                 }
                 R.id.menu_myfare -> {
                     //Navigation.findNavController(this,R.id.myNavHostFragment).navigate(R.id.profileFragment)

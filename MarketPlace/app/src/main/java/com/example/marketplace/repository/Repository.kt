@@ -1,12 +1,13 @@
 package com.example.marketplace.repository
 
+import com.example.marketplace.addproduct.model.*
 import com.example.marketplace.api.RetrofitInstance
-import com.example.marketplace.timeline.*
-import com.example.marketplace.login.*
-import com.example.marketplace.register.*
-import com.example.marketplace.forgetPassword.*
-import com.example.marketplace.settingsProfile.*
-import com.example.marketplace.profile.*
+import com.example.marketplace.timeline.model.*
+import com.example.marketplace.login.model.*
+import com.example.marketplace.register.model.*
+import com.example.marketplace.forgetPassword.model.*
+import com.example.marketplace.settingsProfile.model.*
+import com.example.marketplace.profile.model.*
 
 class Repository {
     suspend fun getProducts(token: String, limit:Int): ProductResponse {
@@ -31,5 +32,9 @@ class Repository {
 
     suspend fun  getUserData(username:String) : UserResponse{
         return RetrofitInstance.api.getUserData(username)
+    }
+
+    suspend fun addProduct(token:String,request:AddProductRequest): AddProductResponse{
+        return RetrofitInstance.api.addProduct(token, request)
     }
 }

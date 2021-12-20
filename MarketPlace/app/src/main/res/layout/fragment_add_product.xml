@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".timeline.AddProductFragment">
+    tools:context=".addproduct.fragment.AddProductFragment"
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -26,24 +27,31 @@
                 android:text="Give us details about your fare" />
 
             <EditText
+                android:id="@+id/titleTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Title"
                 tools:ignore="TouchTargetSizeCheck" />
+
             <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Price / amount"
-                    tools:ignore="TouchTargetSizeCheck" />
+                android:id="@+id/priceTextViewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Price / amount"
+                tools:ignore="TouchTargetSizeCheck" />
+
             <EditText
+                android:id="@+id/amountTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Available amount"
                 tools:ignore="TouchTargetSizeCheck" />
+
             <EditText
+                android:id="@+id/descriptionTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Shot description"
+                android:hint="Short description"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </ScrollView>
@@ -72,16 +80,21 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/sellerNameTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Name"
                 tools:ignore="TouchTargetSizeCheck" />
+
             <EditText
+                android:id="@+id/emailTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Email"
                 tools:ignore="TouchTargetSizeCheck" />
+
             <EditText
+                android:id="@+id/phoneTextViewAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Phone number"
@@ -93,11 +106,12 @@
         android:layout_height="match_parent"
         android:text="Preview my fair">
     </Button>
+
     <Button
+        android:id="@+id/addProductButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Launch my fair">
-    </Button>
+        android:text="Launch my fair"></Button>
 
 </LinearLayout>
 

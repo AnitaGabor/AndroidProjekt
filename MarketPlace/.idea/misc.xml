@@ -8,16 +8,21 @@
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/customer_layout.xml" value="0.13020833333333334" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/customer_layout2.xml" value="0.18342391304347827" />
-        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_add_product.xml" value="0.18931159420289856" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_add_product.xml" value="0.1" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_customer_detail.xml" value="0.13020833333333334" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_forget_password.xml" value="0.15307971014492755" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_login.xml" value="0.1793478260869565" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_my_fare.xml" value="0.17708333333333334" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_my_market.xml" value="0.18342391304347827" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_ongoing_orders.xml" value="0.17708333333333334" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_ongoing_sales.xml" value="0.17708333333333334" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_profile.xml" value="0.15307971014492755" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_register.xml" value="0.1793478260869565" />
-        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_settings.xml" value="0.15307971014492755" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/fragment_time_line.xml" value="0.13020833333333334" />
-        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/menu/action_bar.xml" value="0.1484375" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/orders_layout.xml" value="0.17074275362318841" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/layout/sales_layout.xml" value="0.17708333333333334" />
+        <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/menu/action_bar.xml" value="0.1" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/menu/bottom_nav_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/informatika/Harmad_ev/Android/AndroidProjekt/MarketPlace/app/src/main/res/menu/search_toolbar.xml" value="0.23177083333333334" />
       </map>

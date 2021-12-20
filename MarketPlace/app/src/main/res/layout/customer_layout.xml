@@ -29,7 +29,7 @@
                 card_view:srcCompat="@drawable/ic_launcher_foreground" />
 
             <TextView
-                android:id="@+id/productNameTextView"
+                android:id="@+id/productNameTextViewSales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -43,7 +43,7 @@
                 app:layout_constraintVertical_bias="0.734" />
 
             <TextView
-                android:id="@+id/priceTextView"
+                android:id="@+id/TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -56,7 +56,7 @@
                 app:layout_constraintVertical_bias="0.844" />
 
             <TextView
-                android:id="@+id/sellerTextView"
+                android:id="@+id/sellerTextViewSales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
@@ -80,7 +80,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/priceTextView"
+                app:layout_constraintStart_toEndOf="@+id/TextView"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.831" />
         </androidx.constraintlayout.widget.ConstraintLayout>

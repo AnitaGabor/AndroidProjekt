@@ -2,4 +2,11 @@
     <string name="app_name">Market Place</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    <string-array name="sales_array">-->
+    <!--        <item>Incoming order</item>-->
+    <!--        <item>Accepted order</item>-->
+    <!--        <item>Declined order</item>-->
+    <!--        <item>Delivering order</item>-->
+    <!--        <item>Delivered order</item>-->
+    <!--    </string-array>-->
 </resources>

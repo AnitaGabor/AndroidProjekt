@@ -1,5 +1,8 @@
 package com.example.marketplace.timeline.model
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class Product(val rating: Double = 0.0,
                    val amount_type: String ="",
                    val price_type: String ="",
@@ -13,5 +16,7 @@ data class Product(val rating: Double = 0.0,
                    val creation_time: Long =0
 )
 
-
+@JsonClass(generateAdapter = true)
 data class ProductResponse(val item_count: Int, val products: List<Product>, val timestamp: Long)
+
+

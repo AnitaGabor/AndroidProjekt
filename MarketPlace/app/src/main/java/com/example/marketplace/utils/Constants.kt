@@ -10,8 +10,9 @@ class Constants {
         const val REGISTER_URL ="user/register"
         const val RESET_URL ="user/reset"
         const val UPDATE_DATA_URL = "user/update"
-        const val USER_INFO = "user/data"
+        const val USER_INFO_URL = "user/data"
         const val ADD_PRODUCT_URL ="products/add"
+        const val REMOVE_PRODUCT_URL = "remove?product_id=id"
 
     }
 }

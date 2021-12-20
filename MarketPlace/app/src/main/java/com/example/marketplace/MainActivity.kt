@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     findNavController(R.id.myNavHostFragment).navigate(R.id.myMarketFragment)
                 }
                 R.id.menu_myfare -> {
-                    //Navigation.findNavController(this,R.id.myNavHostFragment).navigate(R.id.profileFragment)
+                    findNavController(R.id.myNavHostFragment).navigate(R.id.myFareFragment)
                 }
 
             }
@@ -74,7 +74,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         R.id.action_search -> {
+            val searchView:SearchView = item.actionView as SearchView
+            searchView.queryHint = "Search product"
 
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return true
+                }
+            })
             true
         }
         R.id.action_profile ->{

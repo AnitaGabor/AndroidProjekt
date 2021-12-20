@@ -29,7 +29,7 @@ class TimeLineFragment : Fragment() , TimeLineDataAdapter.OnItemClickListener, T
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = ListViewModelFactory(Repository())
-        listViewModel = ViewModelProvider(this, factory).get(ListViewModel::class.java)
+        listViewModel = ViewModelProvider(requireActivity(), factory).get(ListViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -61,6 +61,7 @@ class TimeLineFragment : Fragment() , TimeLineDataAdapter.OnItemClickListener, T
 
     override fun onItemClick(position: Int) {
         listViewModel.currentPosition = position
+        Log.d("xxx","Position: ${listViewModel.currentPosition}")
         findNavController().navigate(R.id.action_timeLineFragment_to_customerDetailFragment)
         Log.d("Adapter", "AdapterPosition: $position")
     }

@@ -50,7 +50,7 @@ class MyMarketFragment : Fragment() , MyMarketDataAdapter.OnItemClickListener, M
         val button = view.findViewById<View>(R.id.addButton)
 
         button.setOnClickListener {
-            Navigation.findNavController(this.requireActivity(),R.id.myNavHostFragment).navigate(R.id.myMarketFragment)
+            Navigation.findNavController(this.requireActivity(),R.id.myNavHostFragment).navigate(R.id.addProductFragment)
         }
         return view
     }

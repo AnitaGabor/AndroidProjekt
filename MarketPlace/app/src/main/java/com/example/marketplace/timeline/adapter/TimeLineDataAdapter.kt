@@ -25,9 +25,9 @@ RecyclerView.Adapter<TimeLineDataAdapter.DataViewHolder>() {
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener, View.OnLongClickListener {
-        val productName: TextView = itemView.findViewById(R.id.productNameTextView)
-        val price: TextView = itemView.findViewById(R.id.priceTextView)
-        val seller: TextView = itemView.findViewById(R.id.sellerTextView)
+        val productName: TextView = itemView.findViewById(R.id.productNameTextViewSales)
+        val price: TextView = itemView.findViewById(R.id.TextView)
+        val seller: TextView = itemView.findViewById(R.id.sellerTextViewSales)
 
         init {
             itemView.setOnClickListener(this)

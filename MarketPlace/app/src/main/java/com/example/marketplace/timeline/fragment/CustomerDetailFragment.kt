@@ -1,6 +1,7 @@
 package com.example.marketplace.timeline.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,7 @@ class CustomerDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = ListViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this, factory).get(ListViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), factory).get(ListViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -29,7 +30,7 @@ class CustomerDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_customer_detail, container, false)
 
-
+        Log.d("xxx","Position: ${viewModel.currentPosition}")
         val productItem: Product = viewModel.getProduct()
 
         val seller: TextView = view.findViewById(R.id.sellerTextViewDetail)

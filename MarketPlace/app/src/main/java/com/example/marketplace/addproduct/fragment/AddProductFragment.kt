@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.marketplace.R
 import com.example.marketplace.addproduct.viewModel.AddViewModel
 import com.example.marketplace.addproduct.viewModel.AddViewModelFactory
@@ -52,10 +53,12 @@ class AddProductFragment : Fragment() {
                     it.description = description.text.toString()
                 }
             }
-            lifecycleScope.launch {
-                addViewModel.addProduct()
-            }
+            addViewModel.addProduct()
+
+            findNavController().navigate(R.id.action_addProductFragment_to_myMarketFragment)
+
         }
+
 
         return view
     }

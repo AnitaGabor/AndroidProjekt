@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.marketplace.MyApplication
 import com.example.marketplace.R
 import com.example.marketplace.profile.viewModel.UserInfoViewModel
 import com.example.marketplace.profile.viewModel.UserInfoViewModelFactory
@@ -30,7 +31,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         val view:View =  inflater.inflate(R.layout.fragment_profile, container, false)
 
-
+        val name = view.findViewById<TextView>(R.id.nameProfileTextView)
         val email = view.findViewById<TextView>(R.id.emailTextView)
         val username = view.findViewById<TextView>(R.id.usernameTextView)
         val phone = view.findViewById<TextView>(R.id.phoneNumberTextView)
@@ -38,6 +39,7 @@ class ProfileFragment : Fragment() {
 
         viewModel.user.observe(viewLifecycleOwner){
             email.text = it.email
+            name.text = it.username
             username.text = it.username
             phone.text = it.phone_number
         }

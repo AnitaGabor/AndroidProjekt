@@ -10,22 +10,28 @@ import com.example.marketplace.repository.Repository
 import com.example.marketplace.settingsProfile.model.SettingsRequest
 import kotlinx.coroutines.launch
 
-class SettingsViewModel (val repository: Repository) : ViewModel() {
+class SettingsViewModel(val repository: Repository) : ViewModel() {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
 
     init {
         user.value = User()
     }
-    suspend fun updateUser() {
+
+    fun updateUser() {
         viewModelScope.launch {
-            val request = SettingsRequest(username = user.value!!.username, email = user.value!!.email, phone_number = user.value!!.phone_number)
+            val request = SettingsRequest(
+                username = user.value!!.username,
+                email = user.value!!.email,
+                phone_number = user.value!!.phone_number
+            )
             try {
-                val result = repository.updateUser(MyApplication.token,request)
+                val result = repository.updateUser(MyApplication.token, request)
                 MyApplication.token = result.updateData.token
+
                 token.value = result.updateData.token
                 Log.d("SettingsViewModel ok", "SettingsViewModel - #users:  ${MyApplication.token}")
-            }catch(e: Exception){
+            } catch (e: Exception) {
 
                 Log.d("SettingsViewModel fail", "SettingsViewModel exception: ${e.toString()}")
             }

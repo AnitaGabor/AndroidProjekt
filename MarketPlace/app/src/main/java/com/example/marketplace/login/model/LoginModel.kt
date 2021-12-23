@@ -1,14 +1,12 @@
 package com.example.marketplace.login.model
 
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class LoginRequest (
     var username: String,
     var password: String
 )
 
-@JsonClass(generateAdapter = true)
+
 data class LoginResponse (
     var username: String,
     var email: String,

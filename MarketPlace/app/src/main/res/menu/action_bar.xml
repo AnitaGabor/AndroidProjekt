@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_filter"
         android:icon="@drawable/ic_action_filter"
         android:title="Filter"
         app:showAsAction="always" />

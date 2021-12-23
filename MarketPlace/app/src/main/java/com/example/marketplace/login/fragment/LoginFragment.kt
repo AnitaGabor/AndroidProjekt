@@ -20,6 +20,7 @@ import com.example.marketplace.login.viewmodel.LoginViewModel
 import com.example.marketplace.login.viewmodel.LoginViewModelFactory
 import com.example.marketplace.repository.Repository
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
@@ -42,6 +43,8 @@ class LoginFragment : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_login, container, false)
         val username = view.findViewById<TextInputEditText>(R.id.editTextTextUserName)
         val password = view.findViewById<TextInputEditText>(R.id.editTextTextPasswordLogin)
+        val password_til = view.findViewById<TextInputLayout>(R.id.passwordInput)
+        val name_til = view.findViewById<TextInputLayout>(R.id.usernameInput)
 
         val button = view.findViewById<Button>(R.id.buttonLogIn)
         val buttonSingUp = view.findViewById<Button>(R.id.buttonSingUp)
@@ -49,12 +52,17 @@ class LoginFragment : Fragment() {
         val link = view.findViewById<TextView>(R.id.forgotPasswordLink)
 
         button.setOnClickListener {
-            if(username.text.toString() == "Username" || !isPassword(password))
+            if(username.text.toString().isEmpty())
             {
-                val t: Toast = Toast.makeText(activity?.applicationContext,"Enter data!",
-                    Toast.LENGTH_SHORT)
-                t.show()
+                name_til.setError("Please enter username.")
+
             }
+            else if(!isPassword(password)){
+                password_til.setError("Your password is incorrect.")
+            }
+            else
+            {   password_til.setError(null)
+                name_til.setError(null)
                 loginViewModel.user.value.let {
                     if (it != null) {
                         it.username = username.text.toString()
@@ -66,6 +74,7 @@ class LoginFragment : Fragment() {
                 lifecycleScope.launch {
                     loginViewModel.login()
                 }
+            }
         }
 
         loginViewModel.token.observe(viewLifecycleOwner){
@@ -83,7 +92,7 @@ class LoginFragment : Fragment() {
         return view
     }
     private fun isPassword(text:EditText) :Boolean{
-        val PASSWORD_PATTERN: Pattern = Pattern.compile("[a-zA-Z0-9]{8,24}")
+        val PASSWORD_PATTERN: Pattern = Pattern.compile("[a-zA-Z0-9]{5,24}")
         val pass:String = text.text.toString()
         return pass.isNotEmpty() && PASSWORD_PATTERN.matcher(pass).matches()
     }

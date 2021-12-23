@@ -27,10 +27,7 @@ class SettingsViewModel(val repository: Repository) : ViewModel() {
             )
             try {
                 val result = repository.updateUser(MyApplication.token, request)
-                MyApplication.token = result.updateData.token
-
-                token.value = result.updateData.token
-                Log.d("SettingsViewModel ok", "SettingsViewModel - #users:  ${MyApplication.token}")
+                Log.d("SettingsViewModel ok", "SettingsViewModel - #users:  $result")
             } catch (e: Exception) {
 
                 Log.d("SettingsViewModel fail", "SettingsViewModel exception: ${e.toString()}")

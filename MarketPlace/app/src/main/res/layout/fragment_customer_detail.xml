@@ -4,37 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".timeline.fragment.CustomerDetailFragment">
+    tools:context=".timeline.fragment.CustomerDetailFragment"
+    android:background="@color/white">
 
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="352dp"
-        android:layout_height="162dp"
+        android:layout_width="269dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintVertical_bias="0.029"
+        tools:src="@android:drawable/presence_online" />
 
     <TextView
         android:id="@+id/sellerTextViewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contextClickable="true"
         android:text="TextView"
-        android:textColor="#DFD5D5"
+        android:textColor="#171616"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.113" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView5"
         android:layout_width="61dp"
         android:layout_height="34dp"
         android:src="@drawable/ic_action_profile"
@@ -50,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#E3DDDD"
+        android:textColor="#151414"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"
@@ -63,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#E1D9D9"
+        android:textColor="#171616"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#E6DBDB"
+        android:textColor="#131313"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
@@ -90,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#E3DADA"
+        android:textColor="#151414"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.805"
@@ -100,11 +102,11 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="55dp"
-        android:layout_height="24dp"
+        android:layout_width="118dp"
+        android:layout_height="19dp"
         android:layout_marginBottom="108dp"
         android:text="Total items"
-        android:textColor="#E4D9D9"
+        android:textColor="#1E1D1D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
@@ -112,22 +114,22 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="TextView"
-        android:textColor="#E6DDDD"
+        android:layout_width="92dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="108dp"
+        android:text="Price/Item"
+        android:textColor="#1C1B1B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toEndOf="@+id/textView17" />
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toEndOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/priceTextViewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#D8CECE"
+        android:textColor="#191818"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,24 +143,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#D6D1D1"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        android:textColor="#171616"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <TextView
         android:id="@+id/priceItemTextViewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="144dp"
         android:text="TextView"
-        android:textColor="#DFD5D5"
+        android:textColor="#191818"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toEndOf="@+id/unitsTextViewDetail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

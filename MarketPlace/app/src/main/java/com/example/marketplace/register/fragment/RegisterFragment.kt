@@ -41,6 +41,7 @@ class RegisterFragment : Fragment() {
         val username = view.findViewById<EditText>(R.id.editTextTextPersonName)
         val email = view.findViewById<EditText>(R.id.editTextTextEmailAddress)
         val password = view.findViewById<EditText>(R.id.editTextTextPassword)
+        val phone_number = view.findViewById<EditText>(R.id.editTextPhone2)
 
         val button = view.findViewById<Button>(R.id.buttonRegister)
 
@@ -74,16 +75,20 @@ class RegisterFragment : Fragment() {
                     if(it!=null){
                         it.email = email.text.toString()
                     }
+                    if(it!=null){
+                        it.phone_number = phone_number.text.toString()
+                    }
                 }
                 lifecycleScope.launch {
                     registerViewModel.register()
                 }
             }
-        }
-        registerViewModel.token.observe(viewLifecycleOwner){
             Log.d("RegisterFragment","Success registration")
             this.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
         }
+
+
         link.setOnClickListener {
             Navigation.findNavController(this.requireActivity(),R.id.myNavHostFragment).navigate(R.id.loginFragment)
         }

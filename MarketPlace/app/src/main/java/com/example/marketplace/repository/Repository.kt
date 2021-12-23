@@ -6,8 +6,12 @@ import com.example.marketplace.timeline.model.*
 import com.example.marketplace.login.model.*
 import com.example.marketplace.register.model.*
 import com.example.marketplace.forgetPassword.model.*
+import com.example.marketplace.myfare.model.OrderResponse
+import com.example.marketplace.mymarket.RemoveResponse
 import com.example.marketplace.settingsProfile.model.*
 import com.example.marketplace.profile.model.*
+import com.example.marketplace.updateProduct.model.UpdateRequest
+import com.example.marketplace.updateProduct.model.UpdateResponse
 import retrofit2.http.Part
 
 class Repository {
@@ -41,4 +45,17 @@ class Repository {
     ): AddProductResponse {
         return RetrofitInstance.api.addProduct(token, title, description, price_per_unit, units)
     }
+
+    suspend fun updateProduct(token :String, product_id: String, request:UpdateRequest) : UpdateResponse {
+        return RetrofitInstance.api.updateProduct(token,product_id, request)
+    }
+
+    suspend fun removeProduct(token:String, product_id:String): RemoveResponse {
+        return RetrofitInstance.api.removeProduct(token,product_id)
+    }
+
+    suspend fun getOrders(token: String, limit: Int): OrderResponse {
+        return RetrofitInstance.api.getOrders(token, limit)
+    }
+
 }

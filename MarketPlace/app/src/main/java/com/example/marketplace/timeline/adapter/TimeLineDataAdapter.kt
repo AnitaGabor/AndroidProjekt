@@ -7,43 +7,34 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marketplace.R
 import com.example.marketplace.timeline.model.Product
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TimeLineDataAdapter(
     private var list: ArrayList<Product>,
-    private val listener: OnItemClickListener,
-    private val listener2: OnItemLongClickListener
+    private val listener: OnItemClickListener
 ) :
 RecyclerView.Adapter<TimeLineDataAdapter.DataViewHolder>() {
+    private val arrayList : ArrayList<Product> = ArrayList()
 
     interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    interface OnItemLongClickListener {
-        fun onItemLongClick(position: Int)
-    }
-
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-        View.OnClickListener, View.OnLongClickListener {
+        View.OnClickListener {
         val productName: TextView = itemView.findViewById(R.id.productNameTextViewSales)
         val price: TextView = itemView.findViewById(R.id.TextView)
         val seller: TextView = itemView.findViewById(R.id.sellerTextViewSales)
 
         init {
             itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener(this)
         }
 
         override fun onClick(p0: View?) {
             val currentPosition = this.adapterPosition
             listener.onItemClick(currentPosition)
 
-        }
-
-        override fun onLongClick(p0: View?): Boolean {
-            val currentPosition = this.adapterPosition
-            listener2.onItemLongClick(currentPosition)
-            return true
         }
     }
 

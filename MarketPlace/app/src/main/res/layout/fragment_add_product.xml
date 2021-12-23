@@ -21,6 +21,7 @@
 
 
         <TextView
+            android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -45,20 +46,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.125" />
+            app:layout_constraintVertical_bias="0.203" />
 
         <EditText
             android:id="@+id/priceTextViewAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="150dp"
-            android:hint="Price / amount"
+            android:hint="Price"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.052" />
+            app:layout_constraintVertical_bias="0.131" />
 
         <EditText
             android:id="@+id/amountTextViewAdd"
@@ -71,7 +72,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.031" />
+            app:layout_constraintVertical_bias="0.123" />
 
         <EditText
             android:id="@+id/descriptionTextViewAdd"
@@ -81,23 +82,10 @@
             android:hint="Short description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.671" />
-
-        <Button
-            android:id="@+id/preProductButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="200dp"
-            android:text="Preview my fair"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"></Button>
+            app:layout_constraintVertical_bias="0.756" />
 
         <Button
             android:id="@+id/addProductButton"
@@ -112,6 +100,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"></Button>
+
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Active"
+            app:layout_constraintBottom_toTopOf="@+id/titleTextViewAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.638" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

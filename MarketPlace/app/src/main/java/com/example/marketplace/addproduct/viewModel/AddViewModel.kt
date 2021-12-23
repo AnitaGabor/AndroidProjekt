@@ -12,11 +12,9 @@ import kotlinx.coroutines.launch
 
 class AddViewModel(val repository: Repository) : ViewModel() {
     var product = MutableLiveData<Product>()
-    var user = MutableLiveData<User>()
 
     init {
         product.value = Product()
-        user.value = User()
     }
 
     fun addProduct() {

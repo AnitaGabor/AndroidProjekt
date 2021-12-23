@@ -3,15 +3,17 @@ package com.example.marketplace.mymarket.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marketplace.R
 import com.example.marketplace.timeline.model.Product
+import com.example.marketplace.timeline.viewModel.ListViewModel
 
 class MyMarketDataAdapter(
     private var list: ArrayList<Product>,
     private val listener: OnItemClickListener,
-    private val listener2: OnItemLongClickListener
+    private val myMarketViewModel: ListViewModel
 ) :
     RecyclerView.Adapter<MyMarketDataAdapter.DataViewHolder>() {
 
@@ -19,36 +21,34 @@ class MyMarketDataAdapter(
         fun onItemClick(position: Int)
     }
 
-    interface OnItemLongClickListener {
-        fun onItemLongClick(position: Int)
-    }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-        View.OnClickListener, View.OnLongClickListener {
-        val productName: TextView = itemView.findViewById(R.id.productNameTextViewSales)
-        val price: TextView = itemView.findViewById(R.id.TextView)
-        val seller: TextView = itemView.findViewById(R.id.sellerTextViewSales)
+        View.OnClickListener {
+        val productName: TextView = itemView.findViewById(R.id.productNameTextViewMySales)
+        val price: TextView = itemView.findViewById(R.id.TextView10)
+        val seller: TextView = itemView.findViewById(R.id.sellerTextViewMySales)
+
+        private val button: Button = itemView.findViewById(R.id.button)
 
         init {
             itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener(this)
+            button.setOnClickListener(this)
         }
 
         override fun onClick(p0: View?) {
             val currentPosition = this.adapterPosition
             listener.onItemClick(currentPosition)
-
-        }
-
-        override fun onLongClick(p0: View?): Boolean {
-            val currentPosition = this.adapterPosition
-            listener2.onItemLongClick(currentPosition)
-            return true
+            if(this.button.isPressed) {
+                list.removeAt(currentPosition)
+                myMarketViewModel.removeProduct()
+                notifyItemRemoved(currentPosition)
+                notifyItemRangeChanged(currentPosition, list.size)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.customer_layout, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.mycustomer_layout, parent, false)
         return DataViewHolder(itemView)
     }
 

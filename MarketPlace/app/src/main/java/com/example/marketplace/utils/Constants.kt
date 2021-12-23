@@ -12,7 +12,10 @@ class Constants {
         const val UPDATE_DATA_URL = "user/update"
         const val USER_INFO_URL = "user/data"
         const val ADD_PRODUCT_URL ="products/add"
-        const val REMOVE_PRODUCT_URL = "remove?product_id=id"
+        const val REMOVE_PRODUCT_URL = "remove"
+        const val UPDATE_PRODUCT_URL ="products/update"
+        const val ORDER_ADD_URL = "orders/add"
+        const val GET_ORDERS_URL ="orders"
 
     }
 }

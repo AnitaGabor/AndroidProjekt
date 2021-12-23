@@ -12,12 +12,13 @@ import kotlinx.coroutines.launch
 class ListViewModel(private val repository: Repository) : ViewModel() {
     var products: MutableLiveData<List<Product>> = MutableLiveData()
     var currentPosition:Int = 0;
+    var deleteId: MutableLiveData<String> = MutableLiveData()
     init{
         Log.d("ListViewModel", "ListViewModel constructor - Token: ${MyApplication.token}")
-        getProducts()
+
     }
 
-    private fun getProducts() {
+    fun getProducts() {
         viewModelScope.launch {
             try {
                 val result = repository.getProducts(MyApplication.token, MyApplication.limit)
@@ -31,5 +32,18 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
 
     fun getProduct() :Product{
         return products.value!![currentPosition]
+    }
+
+    fun removeProduct(){
+        viewModelScope.launch {
+            try {
+                Log.d("xxx","${products.value!![currentPosition].product_id}")
+                val result = repository.removeProduct(MyApplication.token, products.value!![currentPosition].product_id)
+                deleteId.value = result.product_id
+                Log.d("ListViewModel", "ListViewModel - #delete:  ${result.product_id}")
+            }catch(e: Exception){
+                Log.d("ListViewModel", "ListViewModel exception delete: ${e.toString()}")
+            }
+        }
     }
 }

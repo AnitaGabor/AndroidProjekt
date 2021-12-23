@@ -38,7 +38,6 @@ class SettingsFragment : Fragment() {
         val email = view.findViewById<EditText>(R.id.editTextTextEmailAddress4)
         val username = view.findViewById<EditText>(R.id.editTextTextUsername)
         val phone = view.findViewById<EditText>(R.id.editTextPhone)
-        val password = view.findViewById<EditText>(R.id.editTextTextPassword2)
         val button = view.findViewById<Button>(R.id.buttonOfSettings)
         val name = view.findViewById<TextView>(R.id.textView8)
 
@@ -49,9 +48,6 @@ class SettingsFragment : Fragment() {
                     it.username = username.text.toString()
                 }
                 if (it != null) {
-                    it.password = password.text.toString()
-                }
-                if (it != null) {
                     it.email = email.text.toString()
                 }
                 if (it != null) {
@@ -59,11 +55,9 @@ class SettingsFragment : Fragment() {
                 }
             }
             settingsViewModel.updateUser()
-        }
-        settingsViewModel.token.observe(viewLifecycleOwner) {
-            Log.d("SettingsFragment", "Settings load...")
             findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
         }
+
 
         return view
     }

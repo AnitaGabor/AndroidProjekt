@@ -1,24 +1,16 @@
 package com.example.marketplace.api
 
 import com.example.marketplace.utils.Constants.Companion.BASE_URL
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-
+import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private val moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
-
     val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
 
-
-    val api: MarketApi by lazy{
+    val api:MarketApi by lazy {
         retrofit.create(MarketApi :: class.java)
     }
 }

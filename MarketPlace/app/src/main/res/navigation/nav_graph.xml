@@ -63,15 +63,19 @@
         android:id="@+id/customerDetailFragment"
         android:name="com.example.marketplace.timeline.fragment.CustomerDetailFragment"
         android:label="fragment_customer_detail"
-        tools:layout="@layout/fragment_customer_detail" />
+        tools:layout="@layout/fragment_customer_detail" >
+        <action
+            android:id="@+id/action_customerDetailFragment_to_otherProfileFragment"
+            app:destination="@id/otherProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myMarketFragment"
         android:name="com.example.marketplace.mymarket.fragment.MyMarketFragment"
         android:label="MyMarketFragment"
         tools:layout="@layout/fragment_my_market">
         <action
-            android:id="@+id/action_myMarketFragment_to_customerDetailFragment"
-            app:destination="@id/customerDetailFragment" />
+            android:id="@+id/action_myMarketFragment_to_myCustomerDetailFragment"
+            app:destination="@id/myCustomerDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addProductFragment"
@@ -87,4 +91,27 @@
         android:name="com.example.marketplace.myfare.fragment.MyFareFragment"
         android:label="MyFareFragment"
         tools:layout="@layout/fragment_my_fare"/>
+    <fragment
+        android:id="@+id/myCustomerDetailFragment"
+        android:name="com.example.marketplace.mymarket.fragment.MyCustomerDetailFragment"
+        android:label="MyCustomerDetailFragment"
+        tools:layout="@layout/fragment_my_customer_detail">
+        <action
+            android:id="@+id/action_myCustomerDetailFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.example.marketplace.updateProduct.fragment.UpdateProductFragment"
+        android:label="fragment_update_product"
+        tools:layout="@layout/fragment_update_product" >
+        <action
+            android:id="@+id/action_updateProductFragment_to_myCustomerDetailFragment"
+            app:destination="@id/myCustomerDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherProfileFragment"
+        android:name="com.example.marketplace.profile.fragment.OtherProfileFragment"
+        android:label="OtherProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
 </navigation>

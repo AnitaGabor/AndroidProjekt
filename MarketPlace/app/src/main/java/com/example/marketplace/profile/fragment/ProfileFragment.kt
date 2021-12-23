@@ -1,6 +1,7 @@
 package com.example.marketplace.profile.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = UserInfoViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this,factory).get(UserInfoViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(),factory).get(UserInfoViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -37,6 +38,8 @@ class ProfileFragment : Fragment() {
         val phone = view.findViewById<TextView>(R.id.phoneNumberTextView)
         val button = view.findViewById<Button>(R.id.settingsButton)
 
+        viewModel.user.value!!.username = MyApplication.username
+        viewModel.getUserData()
         viewModel.user.observe(viewLifecycleOwner){
             email.text = it.email
             name.text = it.username

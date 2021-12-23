@@ -9,20 +9,26 @@ import com.example.marketplace.register.model.RegisterRequest
 import com.example.marketplace.repository.Repository
 import kotlinx.coroutines.launch
 
-class RegisterViewModel (val repository: Repository) : ViewModel() {
+class RegisterViewModel(val repository: Repository) : ViewModel() {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
 
     init {
         user.value = User()
     }
+
     suspend fun register() {
         viewModelScope.launch {
-            val request = RegisterRequest(username = user.value!!.username, password = user.value!!.password, email = user.value!!.email)
+            val request = RegisterRequest(
+                username = user.value!!.username,
+                password = user.value!!.password,
+                email = user.value!!.email,
+                phone_number = user.value!!.phone_number
+            )
             try {
                 val result = repository.register(request)
                 Log.d("RegisterViewModel ok", "RegisterViewModel - #users:  ${result.code}")
-            }catch(e: Exception){
+            } catch (e: Exception) {
 
                 Log.d("RegisterViewModel fail", "RegisterViewModel exception: ${e.toString()}")
             }
